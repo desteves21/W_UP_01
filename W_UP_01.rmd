@@ -37,6 +37,9 @@ pushups is a numerical variable,
 we predict pushups based on position, viz.,
 pushups ~ positions
 
+so we have numerical ~ catergorical
+load the num~cat helper file
+
 # Results
 
 <!--Divide this section into two sub-sections: One for your descriptive results and one for your inferential results.!-->
@@ -47,16 +50,38 @@ pushups ~ positions
 
 <!--Graphical results here. Make sure to show your code. Provide appropriate labels for axes, giving units if possible, and provide a good title for the graph, too. Use the graphical results to describe the patterns if any that exist in the data as focused toward the research question!-->
 
+```{r}
+boxplot(pushups~position,data=mydata)
+```
+
+
+The boxplot shows that the player in the 'SKILL' group have a higher average number of pushups than the players in the 'LINE' group. The 'SKILL' group also has one outlier, indicating that one person did significantly more pushups than the rest.
+
 ### Numerical Descriptive Results
 
 <!--Numerical results go here. Use the numerical results to describe the patterns if any that exist in the data as focused toward the research question!-->
+```{r}
+favstats(pushups~position,data=mydata)
+```
+
+Skilled players do on average 47.5 pushups in 2 minutes and line player do 14.5 pushups in 2 min.
 
 ## Inferential Results
 
 <!--State hypothesis clearly. Make sure your discussion of the inferential test covers all the aspects that the test output produces, such as test statistic, p-value etc. Make a decision about the null hypothesis, explain the assumptions on which the selected test/procedure was based, and why the chosen procedure satisfys the assumptions and is appropriate to answer the research question!-->
 
+```{r}
+t.test(pushups~position,data=mydata)
+```
+The p-value is 0.000009421, which is less than 0.05, so we reject the null hypothesis and conclude there is a that there is a significant difference in the average number of push-ups between the LINE and SKILL players. The LINE group has a significantly lower average number of push-ups compared to the SKILL players.
 
-# Discussion and Conclusion
+## Discussion and Conclusion
 
 <!--Discussion and conclusion here. If you found a relationship be sure to consider whether the relationship occurs because one of the variavbles causes the other, or whether they perhasps are related for some other reason. Watch the chapter 6 videos from the GeorgeTown videos collection.!-->
+
+Data from the Georgetown college football team, line and position playes did as many pushups in two minute.
+
+The boxplot shows that the SKILL players perform better in terms of push-ups. The t-test further confirms this with a small p-value, so we would reject the null hypothesis.
+
+
 
